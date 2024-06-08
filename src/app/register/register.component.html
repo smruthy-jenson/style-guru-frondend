@@ -1,0 +1,38 @@
+<app-header></app-header>
+
+<div style="height: 100vh;" class="w-100 d-flex flex-column justify-content-center align-items-center">
+  <div class="row border shadow rounded w-75" style="background-color:beige;">
+    <div class="col-lg-6">
+        <img class="img-fluid" src="https://cdni.iconscout.com/illustration/premium/thumb/lady-is-using-laptop-for-data-security-10909138-8827289.png" alt="register-img">
+     </div>
+     <div class="col-lg-6">
+        <div style="height: 100%;" class="w-100 d-flex justify-content-center align-items-center flex-column">
+            <h4>Welcome User!!!</h4>
+            <form (ngSubmit)="register()" [formGroup]="registerForm" class="mt-3 container w-100">
+                <div class="form-floating mb-3">
+                    <input type="text" name="username" formControlName="username" class="form-control" id="floatingInputname" placeholder="Username">
+                    <label for="floatingInputname">Username</label>
+                  </div>
+                  <div *ngIf="registerForm.get('username')?.errors && registerForm.get('username')?.touched" class="text-danger fw-bolder mb-2">*Invalid Username</div>
+                <div class="form-floating mb-3">
+                    <input type="email" name="email" formControlName="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                    <label for="floatingInput">Email address</label>
+                </div>
+                <div *ngIf="registerForm.get('email')?.errors && registerForm.get('email')?.touched" class="text-danger fw-bolder mb-2">*Invalid Email</div>
+                <div class="form-floating">
+                    <input type="password" name="password" formControlName="password" class="form-control" id="floatingPassword" placeholder="Password">
+                    <label for="floatingPassword">Password</label>
+                </div>
+                <div *ngIf="registerForm.get('password')?.errors && registerForm.get('password')?.touched" class="text-danger fw-bolder mb-2">*Invalid Password</div>
+                <div class="mt-3">
+                    <button type="submit" class="btn btn-primary">Register</button>
+                </div>
+            </form>
+            <p>Already a User? Click here to <a routerLink="/login">Login</a> </p>
+        </div>
+     </div>
+     
+  </div>
+</div>
+
+
